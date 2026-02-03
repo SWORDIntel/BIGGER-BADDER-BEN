@@ -1,0 +1,15 @@
+[package]
+name = "clock-config-watcher"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.0", features = ["full"] }
+notify = "6.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+
+[[bin]]
+name = "config_watcher"
+path = "src/main.rs"

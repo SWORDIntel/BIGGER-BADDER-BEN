@@ -1,0 +1,36 @@
+{
+  "locations": [
+    {
+      "id": "nist",
+      "name": "NIST",
+      "city": "Boulder, CO",
+      "timezone": "America/Denver",
+      "ntp_server": "time.nist.gov",
+      "corner": "top_left"
+    },
+    {
+      "id": "ptb",
+      "name": "PTB",
+      "city": "Braunschweig",
+      "timezone": "Europe/Berlin",
+      "ntp_server": "ptbtime1.ptb.de",
+      "corner": "top_right"
+    },
+    {
+      "id": "npl",
+      "name": "NPL",
+      "city": "London",
+      "timezone": "Europe/London",
+      "ntp_server": "time.npl.co.uk",
+      "corner": "bottom_left"
+    },
+    {
+      "id": "nict",
+      "name": "NICT",
+      "city": "Tokyo",
+      "timezone": "Asia/Tokyo",
+      "ntp_server": "ntp.nict.jp",
+      "corner": "bottom_right"
+    }
+  ]
+}

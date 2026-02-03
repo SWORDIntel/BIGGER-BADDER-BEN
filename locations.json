@@ -1,0 +1,1 @@
+{"locations": [{"id": "utc", "name": "UTC", "timezone": "UTC", "corner": "top-left"}, {"id": "nyc", "name": "New York", "timezone": "America/New_York", "corner": "top-right"}, {"id": "london", "name": "London", "timezone": "Europe/London", "corner": "bottom-left"}, {"id": "tokyo", "name": "Tokyo", "timezone": "Asia/Tokyo", "corner": "bottom-right"}]}

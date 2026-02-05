@@ -1,5 +1,4 @@
 use notify::{Config, Event, EventKind, RecommendedWatcher, RecursiveMode, Watcher};
-use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::sync::mpsc;
 use std::sync::{Arc, Mutex};
@@ -22,7 +21,7 @@ impl ConfigWatcher {
         F: Fn() + Send + Sync + 'static,
     {
         let config_path = config_path.as_ref().to_path_buf();
-        let callback = Arc::new(Box::new(callback));
+        let callback: Arc<Callback> = Arc::new(Box::new(callback));
         let running = Arc::new(Mutex::new(false));
         
         Ok(Self {
@@ -34,7 +33,7 @@ impl ConfigWatcher {
     }
     
     pub fn start(&mut self) -> Result<(), Box<dyn std::error::Error>> {
-        let (tx, rx) = mpsc::channel();
+        let (tx, rx) = mpsc::channel::<()>();
         let callback = Arc::clone(&self.callback);
         let config_path = self.config_path.clone();
         
@@ -42,7 +41,7 @@ impl ConfigWatcher {
             move |res: Result<Event, notify::Error>| {
                 match res {
                     Ok(event) => {
-                        if event.kind == EventKind::Modify {
+                        if matches!(event.kind, EventKind::Modify(_)) {
                             // Small delay to ensure file write is complete
                             thread::sleep(Duration::from_millis(100));
                             
